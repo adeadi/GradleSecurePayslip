@@ -23,8 +23,7 @@ public class UserController {
 	@RequestMapping(value = "/add_user_request", method = RequestMethod.GET)
     public String addUserRequest(ModelMap model) {
 		model.addAttribute("user",new User());
-        model.addAttribute("mainPage", "new_user.jsp");
-		return "skeleton";
+		return "user/new_user";
 	}
 	
 	@RequestMapping(value = "/add_user", method = RequestMethod.POST)
@@ -36,8 +35,7 @@ public class UserController {
 		} else {
 			model.addAttribute("errorMessage", "User ID is duplicate!");
 		};
-		model.addAttribute("mainPage", "new_user.jsp");
-	    return "skeleton";
+	    return "user/new_user";
 	}
 	
 	@RequestMapping(value = "/manage_user_request", method = RequestMethod.GET)
@@ -46,8 +44,7 @@ public class UserController {
 		List<User> users = userDao.getAllStaff();
 		model.addAttribute("users", users);
 		model.addAttribute("user",new User());
-        model.addAttribute("mainPage", "manage_user.jsp");
-		return "skeleton";
+		return "user/manage_user";
 	}
 	
 	@RequestMapping(value = "/delete_user", method = RequestMethod.POST)
@@ -55,8 +52,7 @@ public class UserController {
     public String deleteUser(@RequestParam String id, ModelMap model) {
 		UserDaoImpl userDao = ApplicationContextProvider.getApplicationContext().getBean("userDao", UserDaoImpl.class);
 		userDao.deleteUser(id);
-        model.addAttribute("mainPage", "manage_user.jsp");
-		return "skeleton";
+		return "user/manage_user";
 	}
 	
 	@RequestMapping(value = "/update_user", method = RequestMethod.POST)
@@ -70,7 +66,6 @@ public class UserController {
 		} else {
 			model.addAttribute("errorMessage", "Something happened! user unable to update!");
 		};
-		model.addAttribute("mainPage", "manage_user.jsp");
-	    return "skeleton";
+	    return "user/manage_user";
 	}
 }

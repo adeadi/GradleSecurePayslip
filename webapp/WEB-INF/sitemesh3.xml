@@ -1,0 +1,5 @@
+<sitemesh>
+    <mapping path="/index.jsp" exclude="true"/>
+    <mapping path="/Access_Denied" exclude="true"/>
+    <mapping path="/*" decorator="/WEB-INF/views/layouts/default.jsp"/>
+</sitemesh>

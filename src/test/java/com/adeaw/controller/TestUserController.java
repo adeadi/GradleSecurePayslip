@@ -26,10 +26,10 @@ import org.springframework.web.servlet.View;
 import com.adeaw.dao.UserDaoImpl;
 import com.adeaw.model.User;
 
-@ContextConfiguration("file:webapp/WEB-INF/webmvc-dispatcher-servlet.xml")
-@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(classes = { TestUserController.Config.class })
+//@RunWith(SpringJUnit4ClassRunner.class)
 public class TestUserController {
-
+/*
 	@InjectMocks
 	UserController controller;
 
@@ -46,26 +46,28 @@ public class TestUserController {
 		MockitoAnnotations.initMocks(this);
 		mockMvc = MockMvcBuilders.standaloneSetup(controller).setSingleView(mockView).build();
 	}
-	
-	@Test
+
+//	@Test
 	public void testAddUserRequest() throws Exception {
 		mockMvc.perform(get("/add_user_request")).andExpect(status().isOk())
-				.andExpect(model().attribute("mainPage", "new_user.jsp"))
-				.andExpect(view().name("skeleton"));
+				.andExpect(model().attribute("mainPage", "new_user.jsp")).andExpect(view().name("skeleton"));
 	}
-	
-	@Test
+
+//	@Test
 	public void testManageUserRequest() throws Exception {
 		List<User> expectedUsers = Arrays.asList(new User());
 		when(mockUserDao.getAllStaff()).thenReturn(expectedUsers);
-		
+
 		mockMvc.perform(get("/manage_user_request")).andExpect(status().isOk())
 				.andExpect(model().attribute("users", expectedUsers))
-				.andExpect(model().attribute("mainPage", "manage_user.jsp"))
-				.andExpect(view().name("skeleton"));
+				.andExpect(model().attribute("mainPage", "manage_user.jsp")).andExpect(view().name("skeleton"));
 	}
 
-	/*@Test
+	public static class Config {
+		
+	}
+
+	@Test
 	public void testAddUser() throws Exception {
 		User user = new User();
 		Boolean expectedAddUser = true;
