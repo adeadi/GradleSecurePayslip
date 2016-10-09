@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="/WEB-INF/includes/declare-taglibs.jspf"%>
 <!-- Main sidebar -->
 <div class="sidebar sidebar-main sidebar-default">
 	<div class="sidebar-content">

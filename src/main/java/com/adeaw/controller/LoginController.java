@@ -54,8 +54,7 @@ public class LoginController {
 
 		model.addAttribute("loginSession", loginSession);
 		model.addAttribute("user",new User());
-        model.addAttribute("mainPage", "new_user.jsp");
-        return "skeleton";
+        return "user/new_user";
     }
  
     @RequestMapping(value="/logout", method = RequestMethod.GET)
